@@ -3,10 +3,10 @@ import Papa from 'papaparse';
 
 // Updated CSV file paths to match your actual structure
 const CSV_PATHS = {
-  netflix: '/csvs/netflix.csv',
-  hulu: '/csvs/hulu.csv',
-  prime: '/csvs/prime.csv',
-  disney: '/csvs/disney.csv'
+  netflix: '/csvs/Netflix.csv',
+  hulu: '/csvs/Hulu.csv',
+  prime: '/csvs/Prime video.csv',
+  disney: '/csvs/Disney +.csv'
 };
 
 /**

@@ -1,11 +1,21 @@
-title,genre,year,rating,director,cast,description,duration,
-The Conjuring,"Horror, Thriller",2013,R,James Wan,"Patrick Wilson, Vera Farmiga","Paranormal investigators help a family terrorized by a dark presence in their farmhouse",112
-Stranger Things,"Horror, Drama, Sci-Fi",2016,TV-14,The Duffer Brothers,"Millie Bobby Brown, Finn Wolfhard","A group of young friends witness supernatural forces and secret government exploits",50
-The Office,"Comedy, Mockumentary",2005,TV-14,Greg Daniels,"Steve Carell, John Krasinski","A mockumentary on a group of typical office workers in Scranton Pennsylvania",22
-Breaking Bad,"Crime, Drama, Thriller",2008,TV-MA,Vince Gilligan,"Bryan Cranston, Aaron Paul","A high school chemistry teacher turned methamphetamine manufacturer",47
-Black Mirror,"Drama, Sci-Fi, Thriller",2011,TV-MA,Charlie Brooker,"Bryce Dallas Howard, Hayley Atwell","An anthology series exploring dark and twisted themes about modern society",60
-The Witcher,"Fantasy, Adventure, Drama",2019,TV-MA,Lauren Schmidt Hissrich,"Henry Cavill, Anya Chalotra","A monster hunter struggles to find his place in a world where people prove more wicked than beasts",60
-Enola Holmes,"Mystery, Adventure, Comedy",2020,PG-13,Harry Bradbeer,"Millie Bobby Brown, Henry Cavill","The teenage sister of Sherlock Holmes seeks to find her missing mother",123
-Marriage Story,"Drama, Romance",2019,R,Noah Baumbach,"Adam Driver, Scarlett Johansson","A stage director and his actor wife struggle through a grueling divorce",137
-Bird Box,"Horror, Thriller, Sci-Fi",2018,R,Susanne Bier,"Sandra Bullock, Trevante Rhodes","A woman and two children make a desperate bid to find safety after mysterious creatures cause mass suicides",124
-Extraction,"Action, Thriller",2020,R,Sam Hargrave,"Chris Hemsworth, Rudhraksh Jaiswal","A black-market mercenary has nothing to lose when his skills are solicited to rescue a kidnapped son",116
+﻿Title,Genre,Year,Rating (1-10),Director,Cast,Duration (min)
+Brick,"['Crime','Drama','Mystery','Thriller']",2005,7,Rian Johnson,Joseph Gordon-Levitt; Nora Zehetner; Lukas Haas,110
+Almost Cops,"['Action','Comedy']",2025,5,Gonzalo Fernández Carmona,Jandino Asporaat; Werner Kolf; Florence Vos Weeda,91
+Extraction,"['Action','Thriller']",2020,7,Sam Hargrave,Chris Hemsworth; Golshifteh Farahani; Rudhraksh Jaiswal,117
+KPop Demon Hunters,"['Animation','Action','Music']",2025,8,Chris Appelhans; Maggie Kang,Arden Cho; May Hong; Ji-young Yoo,96
+The Old Guard 2,"['Action','Adventure','Fantasy']",2025,6,Victoria Mahoney,Charlize Theron; KiKi Layne; Matthias Schoenaerts,125
+Reptile,"['Crime','Drama','Thriller']",2023,6,Grant Singer,Benicio del Toro; Alicia Silverstone; Justin Timberlake,108
+Aap Jaisa Koi,"['Drama','Musical']",2025,6,Vivek Soni,R. Madhavan; Fatima Sana Shaikh; Ayesha Raza,115
+Plane,"['Action','Drama','Thriller']",2023,5,Jean-François Richet,Gerard Butler; Mike Colter; Yoson An,109
+Mission: Impossible – Dead Reckoning Part One,"['Action','Adventure','Thriller']",2023,7,Christopher McQuarrie,Tom Cruise; Hayley Atwell; Ving Rhames,163
+Penguins of Madagascar,"['Animation','Adventure','Comedy']",2014,6,Eric Darnell; Simon J. Smith,Tom McGrath; Chris Miller; Christopher Knights,92
+Infinite,"['Action','Sci-Fi','Fantasy']",2021,5,Antoine Fuqua,Mark Wahlberg; Chiwetel Ejiofor; Sophie Cookson,106
+The Old Guard,"['Action','Fantasy','Sci-Fi']",2020,6,Gina Prince-Bythewood,Charlize Theron; KiKi Layne; Matthias Schoenaerts,125
+About My Father,"['Comedy','Drama']",2023,5,Laura Terruso,Robert De Niro; Sebastian Maniscalco; Leslie Bibb,98
+The Royal Hotel,"['Drama','Thriller']",2023,6,Kitty Green,Julia Garner; Hugo Weaving; Jessica Henwick,104
+Happy Gilmore,"['Comedy','Sport']",1996,7,Dennis Dugan,Adam Sandler; Christopher McDonald; Julie Bowen,92
+Grown Ups 2,['Comedy'],2013,5,Dennis Dugan,Adam Sandler; Kevin James; Chris Rock,101
+Grown Ups,['Comedy'],2010,6,Dennis Dugan,Adam Sandler; Kevin James; Chris Rock,102
+The Quick and the Dead,"['Western','Action','Drama']",1995,6,Sam Raimi,Sharon Stone; Gene Hackman; Russell Crowe,101
+Bird Box,"['Horror','Sci-Fi','Thriller']",2018,6,Susanne Bier,Sandra Bullock; Trevante Rhodes; John Malkovich,124
+Project Power,"['Action','Sci-Fi','Crime']",2020,6,Henry Joost; Ariel Schulman,Jamie Foxx; Joseph Gordon-Levitt; Dominique Fishback,113
