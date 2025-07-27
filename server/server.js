@@ -3,9 +3,10 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
+const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 5555; // Changed from 5000 to avoid conflicts
+const PORT = 5555;
 const DATA_FILE = path.join(__dirname, 'users.json');
 
 // Initialize users file with default admin
@@ -13,17 +14,18 @@ if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, JSON.stringify([
     { 
       username: "admin", 
-      passwordHash: bcrypt.hashSync("admin123", 10) // Password: "admin123"
+      passwordHash: bcrypt.hashSync("admin123", 10),
+      favorites: [] 
     }
   ]));
 }
 
 // Middleware
-app.use(cors()); // Enable CORS for React dev server
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Parse JSON bodies
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Test route (GET)
+// Test route
 app.get('/api/test', (req, res) => {
   res.json({ status: 'Backend is working!' });
 });
@@ -36,66 +38,48 @@ app.get('/', (req, res) => {
     <ul>
       <li><strong>POST /api/register</strong> - Register new user</li>
       <li><strong>POST /api/login</strong> - User login</li>
+      <li><strong>GET /api/user/:username/favorites</strong> - Get user favorites</li>
+      <li><strong>POST /api/favorites/:username</strong> - Update favorites</li>
       <li><strong>GET /api/test</strong> - Connection test</li>
     </ul>
     <p>Server running on port ${PORT}</p>
   `);
 });
 
-// Registration (POST)
+// User registration
 app.post('/api/register', async (req, res) => {
   try {
-    console.log("Registration attempt:", req.body); // Log incoming data
-
     const { username, password } = req.body;
     
-    // Validate input
     if (!username || !password) {
-      console.log("Missing fields");
       return res.status(400).json({ error: "Username and password required" });
     }
 
-    // Read users
     let users = [];
     try {
-      console.log("Users file contents:", fs.readFileSync(DATA_FILE, 'utf8'));
       const data = fs.readFileSync(DATA_FILE, 'utf8');
       users = JSON.parse(data);
-      console.log("Current users:", users);
     } catch (readErr) {
       console.error("Error reading users:", readErr);
       throw new Error("Cannot read user database");
     }
 
-    // Check duplicates
     if (users.some(u => u.username === username)) {
-      console.log("Duplicate username:", username);
       return res.status(400).json({ error: "Username already exists" });
     }
 
-    // Hash password
     const passwordHash = await bcrypt.hash(password, 10);
-    users.push({ username, passwordHash });
+    users.push({ username, passwordHash, favorites: [] });
 
-    // Write to file
-    try {
-      fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2)); // Pretty-print
-      console.log("New user added:", username);
-      res.json({ success: true });
-    } catch (writeErr) {
-      console.error("Error writing users:", writeErr);
-      throw new Error("Cannot save user");
-    }
+    fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
+    res.json({ success: true });
   } catch (err) {
-    console.error("Registration crash:", err);
-    res.status(500).json({ 
-      error: "Internal server error",
-      details: err.message // Send actual error to frontend
-    });
+    console.error("Registration error:", err);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
-// Login (POST)
+// User login
 app.post('/api/login', async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -113,10 +97,82 @@ app.post('/api/login', async (req, res) => {
 
     res.json({ 
       success: true, 
-      username: user.username 
+      user: {
+        username: user.username,
+        favorites: user.favorites || []
+      }
     });
   } catch (err) {
     console.error("Login error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Get user favorites
+app.get('/api/user/:username/favorites', (req, res) => {
+  try {
+    const { username } = req.params;
+    const users = JSON.parse(fs.readFileSync(DATA_FILE));
+    const user = users.find(u => u.username === username);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json({
+      success: true,
+      favorites: user.favorites || []
+    });
+  } catch (err) {
+    console.error("Get favorites error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Update favorites
+app.post('/api/favorites/:username', async (req, res) => {
+  try {
+    const { username } = req.params;
+    const { movie, action } = req.body;
+    
+    if (!movie || !action) {
+      return res.status(400).json({ error: "Movie and action required" });
+    }
+
+    const users = JSON.parse(fs.readFileSync(DATA_FILE));
+    const userIndex = users.findIndex(u => u.username === username);
+
+    if (userIndex === -1) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    if (!users[userIndex].favorites) {
+      users[userIndex].favorites = [];
+    }
+
+    // Ensure movie has an ID
+    const movieId = movie.id || `${movie.title}-${movie.year}-${movie.service}`;
+    const movieWithId = { ...movie, id: movieId };
+
+    if (action === 'add') {
+      if (!users[userIndex].favorites.some(fav => fav.id === movieId)) {
+        users[userIndex].favorites.push(movieWithId);
+      }
+    } else if (action === 'remove') {
+      users[userIndex].favorites = users[userIndex].favorites.filter(
+        fav => fav.id !== movieId
+      );
+    } else {
+      return res.status(400).json({ error: "Invalid action" });
+    }
+
+    fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
+    res.json({ 
+      success: true, 
+      favorites: users[userIndex].favorites 
+    });
+  } catch (err) {
+    console.error("Favorite update error:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 });

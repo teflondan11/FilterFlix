@@ -1,7 +1,7 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser, registerUser } from '../services/authService';
+import './Login.css';
 
 const Login = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -23,7 +23,7 @@ const Login = ({ onLogin }) => {
       }
 
       if (isLogin) {
-        const user = await loginUser(username, password);
+        const { user } = await loginUser(username, password);
         onLogin(user);
         navigate('/');
       } else {
@@ -41,28 +41,24 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8">
-      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-blue-600 text-3xl">🔐</span>
-          <h1 className="text-3xl font-bold text-gray-900">
+    <div className="login-container">
+      <div className="login-card">
+        <div className="login-header">
+          <span className="login-icon">🔐</span>
+          <h1 className="login-title">
             {isLogin ? 'Login' : 'Register'}
           </h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="login-form">
           {error && (
-            <div className={`p-3 rounded-lg ${
-              error.includes('successfully') ? 
-              'bg-green-50 text-green-700' : 
-              'bg-red-50 text-red-700'
-            }`}>
+            <div className={`message ${error.includes('successfully') ? 'success' : 'error'}`}>
               {error}
             </div>
           )}
 
-          <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">
               Username
             </label>
             <input
@@ -72,12 +68,12 @@ const Login = ({ onLogin }) => {
               onChange={(e) => setUsername(e.target.value)}
               required
               minLength="3"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="form-input"
             />
           </div>
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
@@ -87,13 +83,13 @@ const Login = ({ onLogin }) => {
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength="6"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="form-input"
             />
           </div>
 
           {!isLogin && (
-            <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+            <div className="form-group">
+              <label htmlFor="confirmPassword" className="form-label">
                 Confirm Password
               </label>
               <input
@@ -103,7 +99,7 @@ const Login = ({ onLogin }) => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength="6"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="form-input"
               />
             </div>
           )}
@@ -111,19 +107,19 @@ const Login = ({ onLogin }) => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+            className="submit-button"
           >
             {isLoading ? 'Processing...' : isLogin ? 'Login' : 'Register'}
           </button>
         </form>
 
-        <div className="mt-4 text-center">
+        <div className="toggle-form">
           <button
             onClick={() => {
               setIsLogin(!isLogin);
               setError('');
             }}
-            className="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            className="toggle-button"
           >
             {isLogin ? 'Need an account? Register' : 'Already have an account? Login'}
           </button>

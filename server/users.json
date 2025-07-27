@@ -1,10 +1,90 @@
 [
   {
     "username": "admin",
-    "passwordHash": "$2a$10$LIR0ojfKEm.D6XlPLr9TyOaALrWsvrnbF7yhhe60iG/Ycg7yhqqI2"
+    "passwordHash": "$2a$10$LIR0ojfKEm.D6XlPLr9TyOaALrWsvrnbF7yhhe60iG/Ycg7yhqqI2",
+    "favorites": [
+      {
+        "title": "Almost Cops",
+        "genre": "['Action','Comedy']",
+        "year": "2025",
+        "service": "netflix",
+        "id": "Almost Cops-2025-netflix"
+      },
+      {
+        "title": "Penguins of Madagascar",
+        "genre": "['Animation','Adventure','Comedy']",
+        "year": "2014",
+        "service": "netflix",
+        "id": "Penguins of Madagascar-2014-netflix"
+      },
+      {
+        "title": "The Hunt",
+        "genre": "['Action','Horror','Thriller']",
+        "year": "2020",
+        "service": "prime",
+        "id": "The Hunt-2020-prime"
+      },
+      {
+        "title": "Heads of State",
+        "genre": "['Action','Comedy']",
+        "year": "2024",
+        "service": "prime",
+        "id": "Heads of State-2024-prime"
+      },
+      {
+        "title": "Bird Box",
+        "genre": "['Horror','Sci-Fi','Thriller']",
+        "year": "2018",
+        "service": "netflix",
+        "id": "Bird Box-2018-netflix"
+      },
+      {
+        "title": "Back to the Future",
+        "genre": "['Adventure','Comedy','Sci-Fi']",
+        "year": "1985",
+        "service": "hulu",
+        "id": "Back to the Future-1985-hulu"
+      },
+      {
+        "title": "Twisters",
+        "genre": "['Action','Adventure','Sci-Fi']",
+        "year": "2024",
+        "service": "prime",
+        "id": "Twisters-2024-prime"
+      }
+    ]
   },
   {
     "username": "test",
-    "passwordHash": "$2a$10$dfx8rRuRf3gkpPNIgKAC/eRYvrYT0bQGOT3ZABvdHXfNEdmJLVX/W"
+    "passwordHash": "$2a$10$Y2mSf3KJ.N0iCvOJjILK4u/YlPV0i2x0NSrBmNtcJ1DDjUF5FUm1e",
+    "favorites": [
+      {
+        "title": "Infinite",
+        "genre": "['Action','Sci-Fi','Fantasy']",
+        "year": "2021",
+        "service": "netflix",
+        "id": "Infinite-2021-netflix"
+      },
+      {
+        "title": "RoboCop",
+        "genre": "['Action','Crime','Sci-Fi']",
+        "year": "1987",
+        "service": "prime",
+        "id": "RoboCop-1987-prime"
+      }
+    ]
+  },
+  {
+    "username": "react",
+    "passwordHash": "$2a$10$lizkS.TlSyEpxjlYXWpq/eTtyiL.Ikw0RT2vFYrQoOa/IIbCXEA8e",
+    "favorites": [
+      {
+        "title": "The Equalizer 3",
+        "genre": "['Action','Crime','Thriller']",
+        "year": "2023",
+        "service": "hulu",
+        "id": "The Equalizer 3-2023-hulu"
+      }
+    ]
   }
 ]

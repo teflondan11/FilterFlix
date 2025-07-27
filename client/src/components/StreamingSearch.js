@@ -1,6 +1,7 @@
-// src/components/StreamingSearch.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { searchMovies } from '../services/movieService';
+import { updateFavorites, getUserFavorites } from '../services/authService';
+import './StreamingSearch.css';
 
 const StreamingSearch = () => {
   const [searchText, setSearchText] = useState('');
@@ -8,13 +9,34 @@ const StreamingSearch = () => {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const streamingServices = [
-    { id: 'netflix', name: 'Netflix', color: 'bg-red-600' },
-    { id: 'hulu', name: 'Hulu', color: 'bg-green-600' },
-    { id: 'prime', name: 'Prime Video', color: 'bg-blue-600' },
-    { id: 'disney', name: 'Disney+', color: 'bg-indigo-600' }
+    { id: 'netflix', name: 'Netflix' },
+    { id: 'hulu', name: 'Hulu' },
+    { id: 'prime', name: 'Prime Video' },
+    { id: 'disney', name: 'Disney+' }
   ];
+
+  useEffect(() => {
+    const user = sessionStorage.getItem('currentUser');
+    if (user) {
+      setCurrentUser(JSON.parse(user));
+      loadFavorites(JSON.parse(user).username);
+    }
+  }, []);
+
+  const loadFavorites = async (username) => {
+    try {
+      const { favorites: userFavorites } = await getUserFavorites(username);
+      setFavorites(userFavorites || []);
+    } catch (err) {
+      console.error('Failed to load favorites:', err);
+      setError('Failed to load favorites');
+    }
+  };
 
   const handleServiceToggle = (serviceId) => {
     setSelectedServices(prev => 
@@ -22,6 +44,24 @@ const StreamingSearch = () => {
         ? prev.filter(id => id !== serviceId)
         : [...prev, serviceId]
     );
+  };
+
+  const toggleFavorite = async (movie) => {
+    if (!currentUser) {
+      setError('Please login to save favorites');
+      return;
+    }
+
+    try {
+      const movieId = movie.id || `${movie.title}-${movie.year}-${movie.service}`;
+      const isFavorite = favorites.some(fav => fav.id === movieId);
+      const action = isFavorite ? 'remove' : 'add';
+      
+      await updateFavorites(currentUser.username, movie, action);
+      await loadFavorites(currentUser.username);
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleSubmit = async () => {
@@ -41,6 +81,7 @@ const StreamingSearch = () => {
     try {
       const searchResults = await searchMovies(searchText, selectedServices);
       setResults(searchResults);
+      setShowFavorites(false);
     } catch (err) {
       setError('An error occurred while searching. Please try again.');
       console.error('Search error:', err);
@@ -49,55 +90,79 @@ const StreamingSearch = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-100 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-blue-600 text-3xl">🎬</span>
-            <h1 className="text-3xl font-bold text-gray-900">Streaming Movie Search</h1>
+  const MovieCard = ({ movie, isFavorite, onToggleFavorite }) => {
+    const service = streamingServices.find(s => s.id === movie.service);
+    return (
+      <div className="movie-card">
+        <div className="movie-card-content">
+          <div className="movie-info">
+            <h3 className="movie-title">{movie.title}</h3>
+            <p className="movie-genre">Genre: {movie.genre}</p>
+            <p className="movie-year">Year: {movie.year}</p>
+            {movie.rating && (
+              <p className="movie-rating">Rating: {movie.rating}</p>
+            )}
           </div>
+          <div className="movie-actions">
+            <div className={`service-tag ${service?.id || 'default'}`}>
+              {service?.name || movie.service}
+            </div>
+            <button 
+              onClick={() => onToggleFavorite(movie)}
+              className="favorite-button"
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            >
+              {isFavorite ? '❤️' : '🤍'}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
-          <div className="space-y-6">
-            {/* Genre Input */}
-            <div>
-              <label htmlFor="genre" className="block text-sm font-medium text-gray-700 mb-2">
+  return (
+    <div className="streaming-search-container">
+      <div className="search-content">
+        <div className="search-header">
+          <span className="header-icon">🎬</span>
+          <h1 className="header-title">Streaming Movie Search</h1>
+        </div>
+
+        {!showFavorites && (
+          <div className="search-form">
+            <div className="form-group">
+              <label htmlFor="genre" className="form-label">
                 Search by Genre(s)
               </label>
-              <div className="relative">
-                <span className="absolute left-3 top-3 text-gray-400 text-lg">🔍</span>
+              <div className="input-wrapper">
+                <span className="input-icon">🔍</span>
                 <input
                   id="genre"
                   type="text"
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-                  placeholder="e.g., Horror, Comedy, Sci-Fi (separate multiple with commas)"
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="e.g., Horror, Comedy, Sci-Fi"
+                  className="search-input"
                 />
               </div>
             </div>
 
-            {/* Streaming Service Checkboxes */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+            <div className="services-group">
+              <label className="form-label">
                 Select Streaming Services
               </label>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className="services-grid">
                 {streamingServices.map(service => (
                   <div
                     key={service.id}
-                    className={`relative rounded-lg p-4 cursor-pointer transition-all ${
-                      selectedServices.includes(service.id)
-                        ? `${service.color} text-white`
-                        : 'bg-gray-50 hover:bg-gray-100 text-gray-700'
-                    }`}
+                    className={`service-option ${selectedServices.includes(service.id) ? 'selected' : ''}`}
                     onClick={() => handleServiceToggle(service.id)}
                   >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium">{service.name}</span>
+                    <div className="service-option-content">
+                      <span className="service-name">{service.name}</span>
                       {selectedServices.includes(service.id) && (
-                        <span className="text-lg">✅</span>
+                        <span className="checkmark">✅</span>
                       )}
                     </div>
                   </div>
@@ -105,66 +170,75 @@ const StreamingSearch = () => {
               </div>
             </div>
 
-            {/* Error Message */}
-            {error && (
-              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-red-600">{error}</p>
-              </div>
-            )}
+            {error && <div className="error-message">{error}</div>}
 
-            {/* Submit Button */}
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="search-button"
             >
               {isLoading ? 'Searching...' : 'Search Movies'}
             </button>
           </div>
+        )}
 
-          {/* Results */}
-          {results.length > 0 && (
-            <div className="mt-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Search Results ({results.length} movies found)
-              </h2>
-              <div className="grid gap-4">
-                {results.map((movie, index) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900">{movie.title}</h3>
-                        <p className="text-gray-600 mt-1">
-                          <span className="font-medium">Genre:</span> {movie.genre}
-                        </p>
-                        <p className="text-gray-600">
-                          <span className="font-medium">Year:</span> {movie.year}
-                          {movie.rating && (
-                            <>
-                              <span className="font-medium"> • Rating:</span> {movie.rating}
-                            </>
-                          )}
-                        </p>
-                      </div>
-                      <div className={`px-3 py-1 rounded-full text-white text-sm font-medium ${
-                        streamingServices.find(s => s.id === movie.service)?.color || 'bg-gray-600'
-                      }`}>
-                        {streamingServices.find(s => s.id === movie.service)?.name || movie.service}
-                      </div>
-                    </div>
-                  </div>
+        <button
+          onClick={() => setShowFavorites(!showFavorites)}
+          className="favorites-toggle-button"
+        >
+          {showFavorites ? 'Back to Search' : 'View My Favorites'}
+        </button>
+
+        {showFavorites ? (
+          <div className="favorites-view">
+            <h2 className="section-title">
+              My Favorites ({favorites.length})
+            </h2>
+            {favorites.length > 0 ? (
+              <div className="results-grid">
+                {favorites.map((movie, index) => (
+                  <MovieCard 
+                    key={index} 
+                    movie={movie} 
+                    isFavorite={true}
+                    onToggleFavorite={toggleFavorite}
+                  />
                 ))}
               </div>
+            ) : (
+              <div className="empty-state">
+                <p className="empty-message">You haven't saved any favorites yet.</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          results.length > 0 && (
+            <div className="results-view">
+              <h2 className="section-title">
+                Search Results ({results.length})
+              </h2>
+              <div className="results-grid">
+                {results.map((movie, index) => {
+                  const movieId = movie.id || `${movie.title}-${movie.year}-${movie.service}`;
+                  return (
+                    <MovieCard 
+                      key={index} 
+                      movie={movie} 
+                      isFavorite={favorites.some(fav => fav.id === movieId)}
+                      onToggleFavorite={toggleFavorite}
+                    />
+                  );
+                })}
+              </div>
             </div>
-          )}
+          )
+        )}
 
-          {/* No Results */}
-          {results.length === 0 && searchText && !isLoading && !error && (
-            <div className="mt-8 text-center py-8">
-              <p className="text-gray-500 text-lg">No movies found matching your criteria.</p>
-            </div>
-          )}
-        </div>
+        {results.length === 0 && searchText && !isLoading && !error && !showFavorites && (
+          <div className="empty-state">
+            <p className="empty-message">No movies found matching your criteria.</p>
+          </div>
+        )}
       </div>
     </div>
   );
