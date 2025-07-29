@@ -5,6 +5,7 @@ const CSV_PATHS = {
   hulu: '/csvs/hulu.csv',
   prime: '/csvs/prime video.csv',
   disney: '/csvs/disney +.csv'
+
 };
 
 export const processCsvData = async (genreString, services) => {
