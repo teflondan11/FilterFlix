@@ -59,6 +59,27 @@
   color: var(--dark);
 }
 
+.form-label-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.genre-tooltip {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 .input-wrapper {
   position: relative;
 }
@@ -84,6 +105,36 @@
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
   outline: none;
+}
+
+.title-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.select-all-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.select-all-container input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.select-all-container label {
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Update the services group label */
+.services-group .form-label {
+  margin-bottom: 0.5rem;
 }
 
 .services-grid {
@@ -242,7 +293,17 @@
 }
 
 .service-tag.disney {
-  background: #113ccf;
+  background: #bc06f8;
+}
+
+.service-tag.paramount {
+  background: #08009a;
+  color: white;
+}
+
+.service-tag.max {
+  background: #fbff00;
+  color:black;
 }
 
 .favorite-button {
@@ -255,6 +316,125 @@
 
 .favorite-button:hover {
   transform: scale(1.1);
+}
+
+.movie-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #636e72;
+}
+
+.movie-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.genre-tag {
+  background: #dfe6e9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.movie-director,
+.movie-cast {
+  font-size: 0.9rem;
+  color: #636e72;
+  margin-bottom: 0.5rem;
+}
+
+.movie-description {
+  font-size: 0.9rem;
+  color: #636e72;
+  line-height: 1.4;
+  margin-top: 0.8rem;
+}
+
+/* Genre Tooltip Styles */
+.info-tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #555;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-tooltip:hover {
+  background: #007bff;
+  color: white;
+}
+
+.genre-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  font-family: inherit;
+  margin-top: 8px;
+}
+
+.tooltip-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eee;
+}
+
+.genre-list {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.genre-item {
+  display: inline;
+  transition: color 0.2s ease;
+}
+
+.genre-item:hover {
+  color: #007bff;
+}
+
+.genre-separator {
+  color: #bbb;
+  user-select: none;
+}
+
+/* Add a small arrow to the tooltip */
+.genre-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.05));
 }
 
 .empty-state {

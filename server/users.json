@@ -44,6 +44,13 @@
         "year": "2024",
         "service": "prime",
         "id": "Twisters-2024-prime"
+      },
+      {
+        "title": "Scream",
+        "genre": "['Horror', 'Mystery']",
+        "year": "1996",
+        "service": "paramount",
+        "id": "Scream-1996-paramount"
       }
     ]
   },
