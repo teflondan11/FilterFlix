@@ -94,6 +94,33 @@
   transform: translateY(0);
 }
 
+.guest-login-container {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.guest-login-button {
+  background: var(--accent);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.guest-login-button:hover {
+  background: #e84393;
+  transform: translateY(-2px);
+}
+
+.guest-login-button:active {
+  transform: translateY(0);
+}
+
 .toggle-form {
   text-align: center;
   margin-top: 1.5rem;

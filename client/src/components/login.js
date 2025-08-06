@@ -40,6 +40,15 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  const handleGuestLogin = () => {
+    const guestUser = {
+      username: 'guest',
+      isGuest: true
+    };
+    onLogin(guestUser);
+    navigate('/');
+  };
+
   return (
     <div className="login-container">
       <div className="login-card">
@@ -112,6 +121,15 @@ const Login = ({ onLogin }) => {
             {isLoading ? 'Processing...' : isLogin ? 'Login' : 'Register'}
           </button>
         </form>
+
+        <div className="guest-login-container">
+          <button
+            onClick={handleGuestLogin}
+            className="guest-login-button"
+          >
+            Continue as Guest
+          </button>
+        </div>
 
         <div className="toggle-form">
           <button

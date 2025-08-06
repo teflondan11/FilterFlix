@@ -46,7 +46,7 @@ class MovieService {
     };
   }
 
-  async search({ genres = '', title = '', services = [] }) {
+  async search({ genres = '', title = '', services = [], minRating = 0, minDuration = '' }) {
     if (!this.cache.movies) {
       await this.initialize();
     }
@@ -54,9 +54,10 @@ class MovieService {
     const genreList = genres.split(',').map(g => g.trim().toLowerCase()).filter(Boolean);
     const titleQuery = title.trim().toLowerCase();
     const serviceIds = services.length ? services : Object.keys(this.services);
+    const durationFilter = minDuration ? parseInt(minDuration) : null;
 
     return this.cache.movies.filter(movie => {
-      // Filter by service
+      // Filter by service (required)
       if (!serviceIds.includes(movie.service)) {
         return false;
       }
@@ -70,6 +71,16 @@ class MovieService {
 
       // Filter by title if title was specified
       if (titleQuery && !movie.title.toLowerCase().includes(titleQuery)) {
+        return false;
+      }
+
+      // Filter by maximum rating (shows movies with rating <= selected)
+      if (minRating > 0 && (!movie.rating || movie.rating > minRating)) {
+        return false;
+      }
+
+      // Filter by minimum duration
+      if (durationFilter && (!movie.duration || movie.duration < durationFilter)) {
         return false;
       }
 

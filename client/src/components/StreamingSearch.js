@@ -15,12 +15,18 @@ const StreamingSearch = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [allGenres, setAllGenres] = useState([]);
   const [showGenreTooltip, setShowGenreTooltip] = useState(false);
+  const [hoveredStar, setHoveredStar] = useState(0);
+  const [minRating, setMinRating] = useState(0);
+  const [minDuration, setMinDuration] = useState('');
 
   useEffect(() => {
     const user = sessionStorage.getItem('currentUser');
     if (user) {
-      setCurrentUser(JSON.parse(user));
-      loadFavorites(JSON.parse(user).username);
+      const parsedUser = JSON.parse(user);
+      setCurrentUser(parsedUser);
+      if (!parsedUser.isGuest) {
+        loadFavorites(parsedUser.username);
+      }
     }
     loadAllGenres();
   }, []);
@@ -28,25 +34,18 @@ const StreamingSearch = () => {
   const loadAllGenres = async () => {
     try {
       const genres = await movieService.getAvailableGenres();
-      console.log('Loaded genres:', genres); // Debug log
-      if (genres && genres.length > 0) {
-        setAllGenres(genres);
-      } else {
-        console.warn('No genres received from service, using fallback');
-        setAllGenres(['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
-      }
+      setAllGenres(genres || ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
     } catch (error) {
-      console.error('Failed to load genres:', error);
       setAllGenres(['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
     }
   };
 
   const handleSelectAllServices = () => {
-    if (selectedServices.length === movieService.getAvailableServices().length) {
-      setSelectedServices([]);
-    } else {
-      setSelectedServices(movieService.getAvailableServices().map(service => service.id));
-    }
+    setSelectedServices(prev => 
+      prev.length === movieService.getAvailableServices().length 
+        ? [] 
+        : movieService.getAvailableServices().map(service => service.id)
+    );
   };
 
   const loadFavorites = async (username) => {
@@ -72,12 +71,14 @@ const StreamingSearch = () => {
       setError('Please login to save favorites');
       return;
     }
+    if (currentUser.isGuest) {
+      setError('Guest users cannot save favorites. Please create an account.');
+      return;
+    }
 
     try {
       const isFavorite = favorites.some(fav => fav.id === movie.id);
-      const action = isFavorite ? 'remove' : 'add';
-      
-      await updateFavorites(currentUser.username, movie, action);
+      await updateFavorites(currentUser.username, movie, isFavorite ? 'remove' : 'add');
       await loadFavorites(currentUser.username);
     } catch (err) {
       setError(err.message);
@@ -85,13 +86,13 @@ const StreamingSearch = () => {
   };
 
   const handleSubmit = async () => {
-    if (!searchText.trim() && !titleSearch.trim()) {
-      setError('Please enter either genres or title to search');
+    if (selectedServices.length === 0) {
+      setError('Please select at least one streaming service');
       return;
     }
 
-    if (selectedServices.length === 0) {
-      setError('Please select at least one streaming service');
+    if (!searchText.trim() && !titleSearch.trim() && minRating === 0 && !minDuration) {
+      setError('Please fill in at least one search filter');
       return;
     }
 
@@ -102,7 +103,9 @@ const StreamingSearch = () => {
       const searchResults = await movieService.search({
         genres: searchText,
         title: titleSearch,
-        services: selectedServices
+        services: selectedServices,
+        minRating: minRating,
+        minDuration: minDuration
       });
       setResults(searchResults);
       setShowFavorites(false);
@@ -113,6 +116,69 @@ const StreamingSearch = () => {
       setIsLoading(false);
     }
   };
+
+  const handleRatingSelect = (rating) => {
+    setMinRating(rating === minRating ? 0 : rating);
+  };
+
+  const handleDurationChange = (e) => {
+    const value = e.target.value;
+    if (value === '' || /^\d+$/.test(value)) {
+      setMinDuration(value);
+    }
+  };
+
+  const renderRatingStars = () => {
+    return (
+      <div className="rating-filter">
+        <label className="form-label">Maximum Rating</label> {/* Changed from Minimum to Maximum */}
+        <div className="stars-container">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star) => (
+            <span
+              key={star}
+              className={`star ${star <= minRating ? 'selected' : ''} ${
+                star <= hoveredStar ? 'highlighted' : ''
+              }`}
+              onClick={() => handleRatingSelect(star)}
+              onMouseEnter={() => setHoveredStar(star)}
+              onMouseLeave={() => setHoveredStar(0)}
+            >
+              ⭐
+            </span>
+          ))}
+          {minRating > 0 && (
+            <button 
+              className="clear-rating"
+              onClick={() => setMinRating(0)}
+            >
+              ✕ Clear
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const renderDurationFilter = () => (
+    <div className="duration-filter">
+      <label className="form-label">⏱️ Minimum Duration (mins)</label>
+      <input
+        type="number"
+        min="1"
+        value={minDuration}
+        onChange={handleDurationChange}
+        placeholder="e.g., 80"
+        className="duration-input"
+      />
+    </div>
+  );
+
+  const renderFiltersRow = () => (
+    <div className="filter-row">
+      {renderDurationFilter()}
+      {renderRatingStars()}
+    </div>
+  );
 
   const MovieCard = ({ movie, isFavorite, onToggleFavorite }) => {
     const service = movieService.getAvailableServices().find(s => s.id === movie.service);
@@ -156,13 +222,15 @@ const StreamingSearch = () => {
             <div className={`service-tag ${service?.id || 'default'}`}>
               {service?.name || movie.service}
             </div>
-            <button 
-              onClick={() => onToggleFavorite(movie)}
-              className="favorite-button"
-              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            >
-              {isFavorite ? '❤️' : '🤍'}
-            </button>
+            {!currentUser?.isGuest && (
+              <button 
+                onClick={() => onToggleFavorite(movie)}
+                className="favorite-button"
+                aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              >
+                {isFavorite ? '❤️' : '🤍'}
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -175,6 +243,9 @@ const StreamingSearch = () => {
         <div className="search-header">
           <span className="header-icon">🎬</span>
           <h1 className="header-title">Streaming Movie Search</h1>
+          {currentUser?.isGuest && (
+            <p className="guest-notice">You are browsing as a guest. Sign up to save favorites.</p>
+          )}
         </div>
 
         {!showFavorites && (
@@ -264,6 +335,8 @@ const StreamingSearch = () => {
               </div>
             </div>
 
+            {renderFiltersRow()}
+
             <div className="services-group">
               <label className="form-label">
                 Select Streaming Services
@@ -300,12 +373,14 @@ const StreamingSearch = () => {
           </div>
         )}
 
-        <button
-          onClick={() => setShowFavorites(!showFavorites)}
-          className="favorites-toggle-button"
-        >
-          {showFavorites ? 'Back to Search' : 'View My Favorites'}
-        </button>
+        {!currentUser?.isGuest && (
+          <button
+            onClick={() => setShowFavorites(!showFavorites)}
+            className="favorites-toggle-button"
+          >
+            {showFavorites ? 'Back to Search' : 'View My Favorites'}
+          </button>
+        )}
 
         {showFavorites ? (
           <div className="favorites-view">
@@ -349,7 +424,7 @@ const StreamingSearch = () => {
           )
         )}
 
-        {results.length === 0 && (searchText || titleSearch) && !isLoading && !error && !showFavorites && (
+        {results.length === 0 && (searchText || titleSearch || minRating > 0 || minDuration) && !isLoading && !error && !showFavorites && (
           <div className="empty-state">
             <p className="empty-message">No movies found matching your criteria.</p>
           </div>
