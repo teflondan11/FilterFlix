@@ -4,53 +4,140 @@
     "passwordHash": "$2a$10$LIR0ojfKEm.D6XlPLr9TyOaALrWsvrnbF7yhhe60iG/Ycg7yhqqI2",
     "favorites": [
       {
+        "id": "The Super Mario Bros. Movie-2023-prime",
+        "title": "The Super Mario Bros. Movie",
+        "genres": [
+          "Animation",
+          "Adventure",
+          "Comedy"
+        ],
+        "year": "2023",
+        "rating": "1",
+        "director": "Aaron Horvath; Michael Jelenic",
+        "cast": [
+          "Chris Pratt",
+          "Anya Taylor-Joy",
+          "Charlie Day"
+        ],
+        "duration": "92",
+        "description": "Mario and Luigi are whisked away to the colorful Mushroom Kingdom and must team up with Princess Peach to thwart Bowser's plans. Through high-speed chases and epic battles, they learn that brotherhood conquers all.",
+        "service": "prime"
+      },
+      {
+        "id": "Almost Cops-2025-netflix",
         "title": "Almost Cops",
-        "genre": "['Action','Comedy']",
+        "genres": [
+          "Action",
+          "Comedy"
+        ],
         "year": "2025",
-        "service": "netflix",
-        "id": "Almost Cops-2025-netflix"
+        "rating": "5",
+        "director": "Gonzalo Fernández Carmona",
+        "cast": [
+          "Jandino Asporaat",
+          "Werner Kolf",
+          "Florence Vos Weeda"
+        ],
+        "duration": "91",
+        "description": "Two lifelong friends decide to become real cops after playing officer in their neighborhood, only to find themselves hilariously unprepared. Through chaotic misadventures and unexpected heroism, they learn the true meaning of duty.",
+        "service": "netflix"
       },
       {
-        "title": "Penguins of Madagascar",
-        "genre": "['Animation','Adventure','Comedy']",
-        "year": "2014",
-        "service": "netflix",
-        "id": "Penguins of Madagascar-2014-netflix"
+        "id": "KPop Demon Hunters-2025-netflix",
+        "title": "KPop Demon Hunters",
+        "genres": [
+          "Animation",
+          "Action",
+          "Music"
+        ],
+        "year": "2025",
+        "rating": "8",
+        "director": "Chris Appelhans; Maggie Kang",
+        "cast": [
+          "Arden Cho",
+          "May Hong",
+          "Ji-young Yoo"
+        ],
+        "duration": "96",
+        "description": "A group of K-pop idols doubles as demon hunters, balancing glittering performances with supernatural battles. As they protect Seoul from evil forces, they navigate fame, friendship, and the weight of their hidden powers.",
+        "service": "netflix"
       },
       {
+        "id": "Toy Story-1995-disney",
+        "title": "Toy Story",
+        "genres": [
+          "Animation",
+          "Adventure",
+          "Comedy"
+        ],
+        "year": "1995",
+        "rating": "8",
+        "director": "John Lasseter",
+        "cast": [
+          "Tom Hanks",
+          "Tim Allen",
+          "Don Rickles"
+        ],
+        "duration": "81",
+        "description": "When Andy's old toys fear replacement, Woody embarks on a rescue mission with Buzz Lightyear after being separated from the toy box. In their adventure, they learn about friendship, loyalty, and finding one's place in the world.",
+        "service": "disney"
+      },
+      {
+        "id": "The Boy and the Heron-2023-max",
+        "title": "The Boy and the Heron",
+        "genres": [
+          "Animation",
+          "Adventure",
+          "Drama"
+        ],
+        "year": "2023",
+        "director": "Hayao Miyazaki",
+        "cast": [
+          "Luca Padovan, Christian Bale, Dave Bautista"
+        ],
+        "duration": "127",
+        "description": "A boy's surreal journey with a talking heron in a fantasy world.",
+        "service": "max"
+      },
+      {
+        "id": "Mission: Impossible – Dead Reckoning Part One-2023-netflix",
+        "title": "Mission: Impossible – Dead Reckoning Part One",
+        "genres": [
+          "Action",
+          "Adventure",
+          "Thriller"
+        ],
+        "year": "2023",
+        "rating": "7",
+        "director": "Christopher McQuarrie",
+        "cast": [
+          "Tom Cruise",
+          "Hayley Atwell",
+          "Ving Rhames"
+        ],
+        "duration": "163",
+        "description": "Ethan Hunt embarks on a globe-spanning quest to retrieve a rogue AI before it ignites global chaos. Faced with shifting alliances and high-octane stunts, he must rely on his resourcefulness and team to succeed.",
+        "service": "netflix"
+      },
+      {
+        "id": "The Hunt-2020-prime",
         "title": "The Hunt",
-        "genre": "['Action','Horror','Thriller']",
+        "genres": [
+          "Action",
+          "Horror",
+          "Thriller"
+        ],
         "year": "2020",
-        "service": "prime",
-        "id": "The Hunt-2020-prime"
-      },
-      {
-        "title": "Heads of State",
-        "genre": "['Action','Comedy']",
-        "year": "2024",
-        "service": "prime",
-        "id": "Heads of State-2024-prime"
-      },
-      {
-        "title": "Bird Box",
-        "genre": "['Horror','Sci-Fi','Thriller']",
-        "year": "2018",
-        "service": "netflix",
-        "id": "Bird Box-2018-netflix"
-      },
-      {
-        "title": "Twisters",
-        "genre": "['Action','Adventure','Sci-Fi']",
-        "year": "2024",
-        "service": "prime",
-        "id": "Twisters-2024-prime"
-      },
-      {
-        "title": "Scream",
-        "genre": "['Horror', 'Mystery']",
-        "year": "1996",
-        "service": "paramount",
-        "id": "Scream-1996-paramount"
+        "rating": "6",
+        "director": "Craig Zobel",
+        "cast": [
+          "Betty Gilpin",
+          "Hilary Swank",
+          "Ike Barinholtz"
+        ],
+        "duration": "90",
+        "description": "Twelve strangers awaken in a clearing, hunted for sport by faceless elites. As they fight back, a journalist uncovers the sinister political agenda driving the deadly game.",
+        "service": "prime"
       }
     ]
   },
