@@ -4,199 +4,96 @@
     "passwordHash": "$2a$10$LIR0ojfKEm.D6XlPLr9TyOaALrWsvrnbF7yhhe60iG/Ycg7yhqqI2",
     "favorites": [
       {
-        "id": "The Super Mario Bros. Movie-2023-prime",
-        "title": "The Super Mario Bros. Movie",
+        "id": "Camp Alec-2025-disney",
+        "title": "Camp Alec",
         "genres": [
-          "Animation",
-          "Adventure",
-          "Comedy"
-        ],
-        "year": "2023",
-        "rating": "1",
-        "director": "Aaron Horvath; Michael Jelenic",
-        "cast": [
-          "Chris Pratt",
-          "Anya Taylor-Joy",
-          "Charlie Day"
-        ],
-        "duration": "92",
-        "description": "Mario and Luigi are whisked away to the colorful Mushroom Kingdom and must team up with Princess Peach to thwart Bowser's plans. Through high-speed chases and epic battles, they learn that brotherhood conquers all.",
-        "service": "prime"
-      },
-      {
-        "id": "Almost Cops-2025-netflix",
-        "title": "Almost Cops",
-        "genres": [
-          "Action",
-          "Comedy"
+          "Comedy",
+          "Family"
         ],
         "year": "2025",
         "rating": "5",
-        "director": "Gonzalo Fernández Carmona",
+        "director": "Liv Austen",
         "cast": [
-          "Jandino Asporaat",
-          "Werner Kolf",
-          "Florence Vos Weeda"
+          "Christopher Bancroft",
+          "Nicky Favale",
+          "Tipsi Elliott"
         ],
-        "duration": "91",
-        "description": "Two lifelong friends decide to become real cops after playing officer in their neighborhood, only to find themselves hilariously unprepared. Through chaotic misadventures and unexpected heroism, they learn the true meaning of duty.",
-        "service": "netflix"
-      },
-      {
-        "id": "KPop Demon Hunters-2025-netflix",
-        "title": "KPop Demon Hunters",
-        "genres": [
-          "Animation",
-          "Action",
-          "Music"
-        ],
-        "year": "2025",
-        "rating": "8",
-        "director": "Chris Appelhans; Maggie Kang",
-        "cast": [
-          "Arden Cho",
-          "May Hong",
-          "Ji-young Yoo"
-        ],
-        "duration": "96",
-        "description": "A group of K-pop idols doubles as demon hunters, balancing glittering performances with supernatural battles. As they protect Seoul from evil forces, they navigate fame, friendship, and the weight of their hidden powers.",
-        "service": "netflix"
-      },
-      {
-        "id": "Toy Story-1995-disney",
-        "title": "Toy Story",
-        "genres": [
-          "Animation",
-          "Adventure",
-          "Comedy"
-        ],
-        "year": "1995",
-        "rating": "8",
-        "director": "John Lasseter",
-        "cast": [
-          "Tom Hanks",
-          "Tim Allen",
-          "Don Rickles"
-        ],
-        "duration": "81",
-        "description": "When Andy's old toys fear replacement, Woody embarks on a rescue mission with Buzz Lightyear after being separated from the toy box. In their adventure, they learn about friendship, loyalty, and finding one's place in the world.",
+        "duration": "105",
+        "description": "A heartwarming comedy about misfit campers at an unconventional summer program where they discover friendship, self-confidence, and unexpected talents. When quirky activities spiral into chaos, the campers learn to embrace their differences and support each other no matter what.",
         "service": "disney"
       },
       {
-        "id": "The Boy and the Heron-2023-max",
-        "title": "The Boy and the Heron",
+        "id": "The Royal Hotel-2023-netflix",
+        "title": "The Royal Hotel",
         "genres": [
-          "Animation",
-          "Adventure",
+          "Drama",
+          "Thriller"
+        ],
+        "year": "2023",
+        "rating": "2",
+        "director": "Kitty Green",
+        "cast": [
+          "Julia Garner",
+          "Hugo Weaving",
+          "Jessica Henwick"
+        ],
+        "duration": "104",
+        "description": "Two backpackers take jobs at a remote Australian outback pub with strange locals and unsettling secrets. As their nights unravel into paranoia, they fight to uncover the hotel's sinister truth.",
+        "service": "netflix"
+      },
+      {
+        "id": "The Accountant-2016-prime",
+        "title": "The Accountant",
+        "genres": [
+          "Action",
+          "Crime",
           "Drama"
         ],
-        "year": "2023",
-        "director": "Hayao Miyazaki",
-        "cast": [
-          "Luca Padovan, Christian Bale, Dave Bautista"
-        ],
-        "duration": "127",
-        "description": "A boy's surreal journey with a talking heron in a fantasy world.",
-        "service": "max"
-      },
-      {
-        "id": "Mission: Impossible – Dead Reckoning Part One-2023-netflix",
-        "title": "Mission: Impossible – Dead Reckoning Part One",
-        "genres": [
-          "Action",
-          "Adventure",
-          "Thriller"
-        ],
-        "year": "2023",
-        "rating": "7",
-        "director": "Christopher McQuarrie",
-        "cast": [
-          "Tom Cruise",
-          "Hayley Atwell",
-          "Ving Rhames"
-        ],
-        "duration": "163",
-        "description": "Ethan Hunt embarks on a globe-spanning quest to retrieve a rogue AI before it ignites global chaos. Faced with shifting alliances and high-octane stunts, he must rely on his resourcefulness and team to succeed.",
-        "service": "netflix"
-      },
-      {
-        "id": "The Hunt-2020-prime",
-        "title": "The Hunt",
-        "genres": [
-          "Action",
-          "Horror",
-          "Thriller"
-        ],
-        "year": "2020",
+        "year": "2016",
         "rating": "6",
-        "director": "Craig Zobel",
+        "director": "Gavin O'Connor",
         "cast": [
-          "Betty Gilpin",
-          "Hilary Swank",
-          "Ike Barinholtz"
+          "Ben Affleck",
+          "Anna Kendrick",
+          "J.K. Simmons"
         ],
-        "duration": "90",
-        "description": "Twelve strangers awaken in a clearing, hunted for sport by faceless elites. As they fight back, a journalist uncovers the sinister political agenda driving the deadly game.",
+        "duration": "128",
+        "description": "A forensic accountant with autism uncovers financial discrepancies linking a powerful criminal organization to government officials. As he digs deeper, he must rely on his lethal combat training to survive the corruption he unearths.",
         "service": "prime"
-      }
-    ]
-  },
-  {
-    "username": "test",
-    "passwordHash": "$2a$10$Y2mSf3KJ.N0iCvOJjILK4u/YlPV0i2x0NSrBmNtcJ1DDjUF5FUm1e",
-    "favorites": [
-      {
-        "title": "Infinite",
-        "genre": "['Action','Sci-Fi','Fantasy']",
-        "year": "2021",
-        "service": "netflix",
-        "id": "Infinite-2021-netflix"
       },
       {
-        "title": "RoboCop",
-        "genre": "['Action','Crime','Sci-Fi']",
-        "year": "1987",
-        "service": "prime",
-        "id": "RoboCop-1987-prime"
-      }
-    ]
-  },
-  {
-    "username": "react",
-    "passwordHash": "$2a$10$lizkS.TlSyEpxjlYXWpq/eTtyiL.Ikw0RT2vFYrQoOa/IIbCXEA8e",
-    "favorites": [
-      {
-        "title": "The Equalizer 3",
-        "genre": "['Action','Crime','Thriller']",
-        "year": "2023",
-        "service": "hulu",
-        "id": "The Equalizer 3-2023-hulu"
-      }
-    ]
-  },
-  {
-    "username": "Register",
-    "passwordHash": "$2a$10$XVpsxiVrwo9PTEM5Jqiwl.xhq576QcAezZfULnhMXxX2Sz22SIEa2",
-    "favorites": [
-      {
-        "id": "Bird Box-2018-netflix",
-        "title": "Bird Box",
+        "id": "Chinatown-1974-paramount",
+        "title": "Chinatown",
         "genres": [
-          "Horror",
-          "Sci-Fi",
+          "Drama",
+          "Mystery",
           "Thriller"
         ],
-        "year": "2018",
-        "rating": "6",
-        "director": "Susanne Bier",
+        "year": "1974",
+        "director": "Roman Polanski",
         "cast": [
-          "Sandra Bullock",
-          "Trevante Rhodes",
-          "John Malkovich"
+          "Jack Nicholson, Faye Dunaway"
         ],
-        "duration": "124",
-        "description": "In a world where unseen entities drive people to violence when looked at, a mother and her children embark on a blindfolded river journey. Battling unseen terrors, they cling to hope and each other to survive.",
-        "service": "netflix"
+        "duration": "130",
+        "description": "A detective uncovers corruption in 1930s Los Angeles.",
+        "service": "paramount"
+      },
+      {
+        "id": "A Haunted House-2013-max",
+        "title": "A Haunted House",
+        "genres": [
+          "Comedy",
+          "Fantasy",
+          "Horror"
+        ],
+        "year": "2013",
+        "director": "Michael Tiddes",
+        "cast": [
+          "Marlon Wayans, Marlene Forte, Essence Atkins"
+        ],
+        "duration": "86",
+        "description": "Malcolm and his girlfriend Kisha as they move into their dream home, only to discover it’s haunted by a demon that possesses Kisha, prompting Malcolm to recruit a team of paranormal experts to exorcise her.",
+        "service": "max"
       }
     ]
   }
