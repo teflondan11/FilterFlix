@@ -16,6 +16,7 @@ const StreamingSearch = () => {
   const [showFavorites, setShowFavorites] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [allGenres, setAllGenres] = useState([]);
+  const [loadingGenres, setLoadingGenres] = useState(true);
   const [showGenreTooltip, setShowGenreTooltip] = useState(false);
   const [hoveredStar, setHoveredStar] = useState(0);
   const [minRating, setMinRating] = useState(0);
@@ -37,11 +38,19 @@ const StreamingSearch = () => {
   }, []);
 
   const loadAllGenres = async () => {
+    setLoadingGenres(true);
     try {
       const genres = await movieService.getAvailableGenres();
-      setAllGenres(genres || ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
+      if (genres && genres.length > 0) {
+        setAllGenres(genres);
+      } else {
+        setAllGenres(['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
+      }
     } catch (error) {
+      console.error('Failed to load genres:', error);
       setAllGenres(['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
+    } finally {
+      setLoadingGenres(false);
     }
   };
 
@@ -140,7 +149,7 @@ const StreamingSearch = () => {
   const renderRatingStars = () => {
     return (
       <div className="rating-filter">
-        <label className="form-label">Maximum Rating</label>
+        <label className="form-label">Minimum Rating</label>
         <div className="stars-container">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star) => (
             <span
@@ -272,6 +281,7 @@ const StreamingSearch = () => {
                   Search by Genre(s)
                 </label>
                 <div className="info-tooltip" 
+                  style={{ position: 'relative', zIndex: 1000 }}
                   onMouseEnter={() => setShowGenreTooltip(true)}
                   onMouseLeave={() => setShowGenreTooltip(false)}
                   onClick={(e) => {
@@ -282,7 +292,9 @@ const StreamingSearch = () => {
                   ℹ️
                   {showGenreTooltip && (
                     <div className="genre-tooltip">
-                      <div className="tooltip-header">Available Genres ({allGenres.length})</div>
+                      <div className="tooltip-header">
+                        {loadingGenres ? 'Loading genres...' : `Available Genres (${allGenres.length})`}
+                      </div>
                       <div className="genre-list">
                         {allGenres.map((genre, index) => (
                           <React.Fragment key={genre}>
