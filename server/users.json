@@ -173,5 +173,31 @@
         "id": "The Equalizer 3-2023-hulu"
       }
     ]
+  },
+  {
+    "username": "Register",
+    "passwordHash": "$2a$10$XVpsxiVrwo9PTEM5Jqiwl.xhq576QcAezZfULnhMXxX2Sz22SIEa2",
+    "favorites": [
+      {
+        "id": "Bird Box-2018-netflix",
+        "title": "Bird Box",
+        "genres": [
+          "Horror",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "year": "2018",
+        "rating": "6",
+        "director": "Susanne Bier",
+        "cast": [
+          "Sandra Bullock",
+          "Trevante Rhodes",
+          "John Malkovich"
+        ],
+        "duration": "124",
+        "description": "In a world where unseen entities drive people to violence when looked at, a mother and her children embark on a blindfolded river journey. Battling unseen terrors, they cling to hope and each other to survive.",
+        "service": "netflix"
+      }
+    ]
   }
 ]

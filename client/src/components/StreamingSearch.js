@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import movieService from '../services/movieService';
 import { updateFavorites, getUserFavorites } from '../services/authService';
+import AboutTab from './AboutTab';
 import './StreamingSearch.css';
 
 const StreamingSearch = () => {
@@ -18,6 +20,9 @@ const StreamingSearch = () => {
   const [hoveredStar, setHoveredStar] = useState(0);
   const [minRating, setMinRating] = useState(0);
   const [minDuration, setMinDuration] = useState('');
+  const [showDim, setShowDim] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = sessionStorage.getItem('currentUser');
@@ -38,6 +43,10 @@ const StreamingSearch = () => {
     } catch (error) {
       setAllGenres(['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi']);
     }
+  };
+
+  const handleFirstInteraction = () => {
+    setShowDim(false);
   };
 
   const handleSelectAllServices = () => {
@@ -131,7 +140,7 @@ const StreamingSearch = () => {
   const renderRatingStars = () => {
     return (
       <div className="rating-filter">
-        <label className="form-label">Maximum Rating</label> {/* Changed from Minimum to Maximum */}
+        <label className="form-label">Maximum Rating</label>
         <div className="stars-container">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star) => (
             <span
@@ -239,12 +248,19 @@ const StreamingSearch = () => {
 
   return (
     <div className="streaming-search-container">
+      {showDim && <div className="screen-dim" />}
+      
       <div className="search-content">
         <div className="search-header">
-          <span className="header-icon">🎬</span>
-          <h1 className="header-title">Streaming Movie Search</h1>
+          <AboutTab 
+            username={currentUser?.username}
+            onFirstInteraction={handleFirstInteraction}
+          />
           {currentUser?.isGuest && (
             <p className="guest-notice">You are browsing as a guest. Sign up to save favorites.</p>
+          )}
+          {currentUser && (
+            <span className="username">Welcome, {currentUser.username}</span>
           )}
         </div>
 
