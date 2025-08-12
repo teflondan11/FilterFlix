@@ -1,21 +1,31 @@
-﻿Title,Genre,Year,Rating (1–10),Director,Cast,Duration (min),Description,,
-Seven Samurai,"['Adventure', 'Drama']",1954,9,Akira Kurosawa,"Toshiro Mifune, Takashi Shimura, Keiko Tsushima",207,A village under threat of bandits recruits seven samurai.,,
-The Tale of the Princess Kaguya,"['Animation', 'Drama', 'Fantasy']",2013,8,Isao Takahata,"Chloë Grace Moretz, James Caan",137,A princess grows too quickly for her mysterious bamboo stalk origin.,,
-Singin' in the Rain,"['Comedy', 'Musical', 'Romance']",1952,8,"Stanley Donen, Gene Kelly","Gene Kelly, Donald O'Connor, Debbie Reynolds",103,A silent film production transitions to talkies.,,
-Only Yesterday,"['Animation', 'Drama', 'Romance']",1991,8,Isao Takahata,"Tara Strong, Daisy Ridley",118,A woman reflects on her childhood during a trip to the countryside.,,
-Tokyo Story,['Drama'],1953,8,Yasujirō Ozu,"Chishū Ryū, Chieko Higashiyama",136,An elderly couple visits their adult children in Tokyo.,,
-Battleship Potemkin,"['Drama', 'History']",1925,8,Sergei M. Eisenstein,Aleksandr Antonov,70,A dramatized account of the 1905 mutiny on the Russian battleship Potemkin.,,
-Fanny and Alexander,"['Drama', 'Family']",1982,8,Ingmar Bergman,"Pernilla Allwin, Bertil Guve, Ewa Fröling",188,Two siblings experience family turmoil after their father’s death.,,
-Stalker,"['Drama', 'Sci‑Fi']",1979,8,Andrei Tarkovsky,"Aleksandr Kaidanovsky, Anatoly Solonitsyn",163,Three men journey through a mysterious 'Zone' that grants wishes.,,
-Lady Bird,"['Comedy', 'Drama']",2017,7,Greta Gerwig,"Saoirse Ronan, Laurie Metcalf",94,A teenager navigates her senior year of high school and her relationship with her mother.,,
-Casablanca,"['Drama', 'Romance', 'War']",1942,7,Michael Curtiz,"Humphrey Bogart, Ingrid Bergman, Paul Henreid",102,An expatriate bar owner must choose between love and virtue during WWII.,,
-The Battle of Algiers,"['Drama', 'History', 'War']",1966,3,Gillo Pontecorvo,Jean Martin,121,A depiction of the Algerian struggle for independence.,,
-The 400 Blows,['Drama'],1959,2,François Truffaut,Jean‑Pierre Léaud,99,A young boy rebels against his parents and teachers.,,
-Bicycle Thieves,['Drama'],1948,1,Vittorio De Sica,Lamberto Maggiorani,89,A father searches Rome for his stolen bicycle needed for work.,,
-Super/Man: The Christopher Reeve Story,"['Biography', 'Drama']",2024,6,"Ian Bonhôte, Peter Ettedgui","Glenn Close, Jeff Daniels, Whoopi Goldberg",160,The life and career of actor Christopher Reeve.,,
-A Hard Day's Night,"['Comedy', 'Music']",1964,5,Richard Lester,The Beatles,87,A day in the life of The Beatles at the height of Beatlemania.,,
-Rashomon,"['Crime', 'Drama', 'Mystery']",1950,4,Akira Kurosawa,"Toshiro Mifune, Machiko Kyō",88,A murder and rape witnessed from multiple conflicting perspectives.,,
-Ikiru,['Drama'],1952,8,Akira Kurosawa,Takashi Shimura,143,A bureaucrat struggles to find meaning after a terminal diagnosis.,,
-The Boy and the Heron,"['Animation', 'Adventure', 'Drama']",2023,3,Hayao Miyazaki,"Luca Padovan, Christian Bale, Dave Bautista",127,A boy's surreal journey with a talking heron in a fantasy world.,,
-A Haunted House,"['Comedy','Fantasy','Horror']",2013,2,Michael Tiddes,"Marlon Wayans, Marlene Forte, Essence Atkins",86,"Malcolm and his girlfriend Kisha as they move into their dream home, only to discover it’s haunted by a demon that possesses Kisha, prompting Malcolm to recruit a team of paranormal experts to exorcise her.",,
-A Haunted House 2,"['Comedy','Fantasy','Horror']",2014,1,Michael Tiddes,"Marlon Wayans, Jaime Pressly, Essence Atkins",86,"After a year long gap, Malcolm Johnson moves in with his new girlfriend, Megan, and her two children only to have their home terrorized by a demonic doll named Abigail and a string of increasingly gruesome supernatural pranks, leading him to enlist a motley crew of paranormal investigators.",,
+﻿Title,Genre,Year,Rating (1–10),Director,Cast,Duration (min),Description
+Seven Samurai,"Adventure, Drama",1954,9,Akira Kurosawa,"Toshiro Mifune, Takashi Shimura, Keiko Tsushima",207,A village under threat of bandits recruits seven samurai.
+The Tale of the Princess Kaguya,"Animation, Drama, Fantasy",2013,8,Isao Takahata,"Chloë Grace Moretz, James Caan",137,A princess grows too quickly for her mysterious bamboo stalk origin.
+Singin' in the Rain,"Comedy, Musical, Romance",1952,8,"Stanley Donen, Gene Kelly","Gene Kelly, Donald O'Connor, Debbie Reynolds",103,A silent film production transitions to talkies.
+Only Yesterday,"Animation, Drama, Romance",1991,8,Isao Takahata,"Tara Strong, Daisy Ridley",118,A woman reflects on her childhood during a trip to the countryside.
+Tokyo Story,Drama,1953,8,Yasujirō Ozu,"Chishū Ryū, Chieko Higashiyama",136,An elderly couple visits their adult children in Tokyo.
+Battleship Potemkin,"Drama, History",1925,8,Sergei M. Eisenstein,Aleksandr Antonov,70,A dramatized account of the 1905 mutiny on the Russian battleship Potemkin.
+Fanny and Alexander,"Drama, Family",1982,8,Ingmar Bergman,"Pernilla Allwin, Bertil Guve, Ewa Fröling",188,Two siblings experience family turmoil after their father’s death.
+Stalker,"Drama, Sci‑Fi",1979,8,Andrei Tarkovsky,"Aleksandr Kaidanovsky, Anatoly Solonitsyn",163,Three men journey through a mysterious 'Zone' that grants wishes.
+Lady Bird,"Comedy, Drama",2017,7,Greta Gerwig,"Saoirse Ronan, Laurie Metcalf",94,A teenager navigates her senior year of high school and her relationship with her mother.
+Casablanca,"Drama, Romance, War",1942,7,Michael Curtiz,"Humphrey Bogart, Ingrid Bergman, Paul Henreid",102,An expatriate bar owner must choose between love and virtue during WWII.
+The Battle of Algiers,"Drama, History, War",1966,3,Gillo Pontecorvo,Jean Martin,121,A depiction of the Algerian struggle for independence.
+The 400 Blows,Drama,1959,2,François Truffaut,Jean‑Pierre Léaud,99,A young boy rebels against his parents and teachers.
+Bicycle Thieves,Drama,1948,1,Vittorio De Sica,Lamberto Maggiorani,89,A father searches Rome for his stolen bicycle needed for work.
+Super/Man: The Christopher Reeve Story,"Biography, Drama",2024,6,"Ian Bonhôte, Peter Ettedgui","Glenn Close, Jeff Daniels, Whoopi Goldberg",160,The life and career of actor Christopher Reeve.
+A Hard Day's Night,"Comedy, Music",1964,5,Richard Lester,The Beatles,87,A day in the life of The Beatles at the height of Beatlemania.
+Rashomon,"Crime, Drama, Mystery",1950,4,Akira Kurosawa,"Toshiro Mifune, Machiko Kyō",88,A murder and rape witnessed from multiple conflicting perspectives.
+Ikiru,Drama,1952,8,Akira Kurosawa,Takashi Shimura,143,A bureaucrat struggles to find meaning after a terminal diagnosis.
+The Boy and the Heron,"Animation, Adventure, Drama",2023,3,Hayao Miyazaki,"Luca Padovan, Christian Bale, Dave Bautista",127,A boy's surreal journey with a talking heron in a fantasy world.
+A Haunted House,"Comedy, Fantasy, Horror",2013,2,Michael Tiddes,"Marlon Wayans, Marlene Forte, Essence Atkins",86,"Malcolm and his girlfriend Kisha as they move into their dream home, only to discover it’s haunted by a demon that possesses Kisha, prompting Malcolm to recruit a team of paranormal experts to exorcise her."
+A Haunted House 2,"Comedy, Fantasy, Horror",2014,1,Michael Tiddes,"Marlon Wayans, Jaime Pressly, Essence Atkins",86,"After a year long gap, Malcolm Johnson moves in with his new girlfriend, Megan, and her two children only to have their home terrorized by a demonic doll named Abigail and a string of increasingly gruesome supernatural pranks, leading him to enlist a motley crew of paranormal investigators."
+Zack Snyder's Justice League,"Action, Adventure, Fantasy",2021,8,Zack Snyder,"Ben Affleck, Henry Cavill, Gal Gadot",242,"An alternate director's cut of the 2017 film Justice League, presenting Zack Snyder's original vision."
+The Many Saints of Newark,"Crime, Drama",2021,6,Alan Taylor,"Alessandro Nivola, Leslie Odom Jr., Jon Bernthal",120,"A prequel to The Sopranos, exploring the formative years of Tony Soprano."
+Wonder Woman 1984,"Action, Adventure, Fantasy",2020,6,Patty Jenkins,"Gal Gadot, Chris Pine, Kristen Wiig",151,Diana Prince comes into conflict with the Soviet Union during the Cold War and faces off against Cheetah.
+Dune,"Action, Adventure, Drama",2021,8,Denis Villeneuve,"Timothée Chalamet, Rebecca Ferguson, Oscar Isaac",155,Feature adaptation of Frank Herbert's science fiction novel about the son of a noble family entrusted with protecting a vital spice.
+Space Jam: A New Legacy,"Animation, Adventure, Comedy",2021,4,Malcolm D. Lee,"LeBron James, Don Cheadle, Cedric Joe",115,Basketball champion LeBron James teams up with the Looney Tunes to save his son in a virtual world.
+The Suicide Squad,"Action, Adventure, Comedy",2021,7,James Gunn,"Margot Robbie, Idris Elba, John Cena",132,Supervillains are recruited by the government to complete a dangerous mission on the island of Corto Maltese.
+Mortal Kombat,"Action, Adventure, Fantasy",2021,6,Simon McQuoid,"Lewis Tan, Jessica McNamee, Josh Lawson",110,MMA fighter Cole Young seeks out Earth's greatest champions to stand against the enemies of Outworld.
+King Richard,"Biography, Drama, Sport",2021,8,Reinaldo Marcus Green,"Will Smith, Aunjanue Ellis-Taylor, Saniyya Sidney",144,A look at how tennis superstars Venus and Serena Williams became who they are after the coaching from their father.
+Godzilla vs. Kong,"Action, Sci-Fi, Thriller",2021,7,Adam Wingard,"Alexander Skarsgård, Millie Bobby Brown, Rebecca Hall",113,"The epic next chapter in the cinematic MonsterVerse pits Godzilla against Kong, with humanity caught in the balance."
+Reminiscence,"Mystery, Romance, Sci-Fi",2021,5,Lisa Joy,"Hugh Jackman, Rebecca Ferguson, Thandiwe Newton",116,A scientist discovers a way to relive your past and uses the technology to search for his long-lost love.
