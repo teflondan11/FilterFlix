@@ -1,19 +1,4 @@
-/* src/App.css */
-:root {
-  --primary: #6c5ce7;
-  --primary-dark: #5649c0;
-  --secondary: #a29bfe;
-  --dark: #2d3436;
-  --dark-light: #636e72;
-  --light: #f5f6fa;
-  --light-dark: #dfe6e9;
-  --accent: #fd79a8;
-  --accent-dark: #e84393;
-  --white: #ffffff;
-  --success: #00b894;
-  --warning: #fdcb6e;
-  --danger: #d63031;
-}
+
 
 /* Base Layout */
 .app-container {
@@ -183,4 +168,92 @@
     font-size: 1.3rem;
     margin-right: 0;
   }
+}
+
+:root {
+  /* Light mode colors */
+  --light: #ffffff;
+  --dark: #2d3436;
+  --dark-light: #636e72;
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --accent: #fd79a8;
+  --background: #f8f9fa;
+  --card-bg: #ffffff;
+  --text: #2d3436;
+  --text-light: #636e72;
+  --border: #dfe6e9;
+  --star-color: #ffd700; /* Yellow stars in light mode */
+  --shadow: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode {
+  /* Dark mode colors */
+  --light: #1e272e;
+  --dark: #f5f6fa;
+  --dark-light: #dcdde1;
+  --primary: #6c5ce7;
+  --secondary: #a29bfe;
+  --accent: #fd79a8;
+  --background: #2f3640;
+  --card-bg: #1e272e;
+  --text: #f5f6fa;
+  --text-light: #dcdde1;
+  --border: #353b48;
+  --star-color: #9c88ff; /* Purple stars in dark mode */
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Toggle Styles */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 100;
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+.dark-mode-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Update navbar styles for dark mode */
+.navbar {
+  background: var(--card-bg);
+  box-shadow: 0 2px 15px var(--shadow);
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.logo {
+  color: var(--primary);
+}
+
+.username {
+  color: var(--text-light);
+}
+
+.logout-button {
+  background: var(--light);
+  color: var(--text);
+}
+
+.logout-button:hover {
+  background: var(--border);
+  color: var(--primary);
+}
+
+/* Ensure transitions for dark mode switch */
+body, .navbar, .logout-button, .logo, .username {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }

@@ -11,6 +11,7 @@
 .login-card {
   background: white;
   border-radius: 16px;
+  color:black;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   padding: 2.5rem;
   width: 100%;
@@ -155,4 +156,42 @@
 .message.success {
   background-color: #e8f8f2;
   color: var(--success);
+}
+
+/*Dark Mode*/
+.dark-mode .login-container {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+}
+
+.dark-mode .login-card {
+  background-color: var(--card-bg);
+  color: var(--dark);
+}
+
+.dark-mode .login-title {
+  color: var(--dark);
+}
+
+.dark-mode .form-label {
+  color: var(--dark);
+}
+
+.dark-mode .form-input {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+.dark-mode .toggle-button {
+  color: var(--primary);
+}
+
+.dark-mode .message.error {
+  background-color: #3a1a1a;
+  color: #ff6b6b;
+}
+
+.dark-mode .message.success {
+  background-color: #1a3a2a;
+  color: #00d68f;
 }

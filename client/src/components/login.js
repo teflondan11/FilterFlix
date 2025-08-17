@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser, registerUser } from '../services/authService';
 import './Login.css';
@@ -10,7 +10,24 @@ const Login = ({ onLogin }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,9 +67,18 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-container">
+    <div className={`login-container ${darkMode ? 'dark-mode' : ''}`}>
       <div className="login-card">
         <div className="login-header">
+          <div className="header-controls">
+            <button 
+              onClick={toggleDarkMode}
+              className="dark-mode-toggle"
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {darkMode ? '☀️' : '🌙'}
+            </button>
+          </div>
           <span className="login-icon">🔐</span>
           <h1 className="login-title">
             {isLogin ? 'Login' : 'Register'}

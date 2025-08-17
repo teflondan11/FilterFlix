@@ -83,3 +83,34 @@
   position: relative;
   z-index: 1001; /* Ensure it appears above the dim */
 }
+
+/*Dark Mode*/
+.dark-mode .about-container {
+  color: var(--dark);
+}
+
+.dark-mode .about-tab {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+.dark-mode .about-dropdown {
+  background-color: var(--card-bg);
+  border-color: #444;
+}
+
+.dark-mode .about-content {
+  color: var(--dark);
+}
+
+.dark-mode .about-content h3 {
+  color: var(--primary);
+}
+
+.dark-mode .close-button {
+  color: var(--dark-light);
+}
+
+.dark-mode .close-button:hover {
+  color: var(--dark);
+}

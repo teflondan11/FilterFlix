@@ -94,6 +94,64 @@
         "duration": "86",
         "description": "Malcolm and his girlfriend Kisha as they move into their dream home, only to discover it’s haunted by a demon that possesses Kisha, prompting Malcolm to recruit a team of paranormal experts to exorcise her.",
         "service": "max"
+      },
+      {
+        "id": "A Quiet Place Part II-2021-hulu",
+        "title": "A Quiet Place Part II",
+        "genres": [
+          "Drama",
+          "Horror",
+          "Sci-Fi"
+        ],
+        "year": "2021",
+        "rating": "2",
+        "director": "John Krasinski",
+        "cast": [
+          "Emily Blunt",
+          "Cillian Murphy",
+          "Millicent Simmonds"
+        ],
+        "duration": "97",
+        "description": "Continuing the terrifying saga of sound-sensitive aliens, a family fights to survive in a world where any noise can be deadly. Trusting only their silence, they venture beyond the safety of their home in search of others.",
+        "service": "hulu"
+      },
+      {
+        "id": "Final Destination 5-2011-prime",
+        "title": "Final Destination 5",
+        "genres": [
+          "Horror",
+          "Mystery",
+          "Thriller"
+        ],
+        "year": "2011",
+        "rating": "2",
+        "director": "Steven Quale",
+        "cast": [
+          "Nicholas D'Agosto",
+          "Emma Bell",
+          "Miles Fisher"
+        ],
+        "duration": "92",
+        "description": "After foreseeing a tragic bridge collapse, a team cheats death only to find themselves stalked by its relentless design. Racing to decode the pattern of demise, they fight to stay alive in this fatal game of survival.",
+        "service": "prime"
+      },
+      {
+        "id": "Hamilton-2020-disney",
+        "title": "Hamilton",
+        "genres": [
+          "Documentary",
+          "Biography",
+          "Drama"
+        ],
+        "year": "2020",
+        "rating": "1",
+        "director": "Thomas Kail",
+        "cast": [
+          "Lin-Manuel Miranda, Leslie Odom Jr., Phillipa Soo"
+        ],
+        "duration": "160",
+        "description": "Lin-Manuel Miranda's filmed version of the Broadway sensation chronicles Alexander Hamilton's rise from immigrant orphan to founding father. Through innovative rap and soaring melodies, it explores ambition, legacy, and the price of legacy.",
+        "service": "disney"
       }
     ]
   }
