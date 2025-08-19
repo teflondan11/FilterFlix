@@ -154,5 +154,92 @@
         "service": "disney"
       }
     ]
+  },
+  {
+    "username": "example",
+    "passwordHash": "$2a$10$nRtahchL0ZZ3bn/gjgZg8O5saeeahX60SnXsIYt7RRTcdp8VvXi/e",
+    "favorites": [
+      {
+        "id": "Bird Box-2018-netflix",
+        "title": "Bird Box",
+        "genres": [
+          "Horror",
+          "Sci-Fi",
+          "Thriller"
+        ],
+        "year": "2018",
+        "rating": "6",
+        "director": "Susanne Bier",
+        "cast": [
+          "Sandra Bullock",
+          "Trevante Rhodes",
+          "John Malkovich"
+        ],
+        "duration": "124",
+        "description": "In a world where unseen entities drive people to violence when looked at, a mother and her children embark on a blindfolded river journey. Battling unseen terrors, they cling to hope and each other to survive.",
+        "service": "netflix"
+      }
+    ]
+  },
+  {
+    "username": "DemoExample",
+    "passwordHash": "$2a$10$ejza9dFQjYeTrUuTQAenJ.lRaK/Cus5bosYZWgjxz.t5a3bEJsP66",
+    "favorites": [
+      {
+        "id": "Don't Look Up-2021-netflix",
+        "title": "Don't Look Up",
+        "genres": [
+          "Comedy",
+          "Drama",
+          "Sci-Fi"
+        ],
+        "year": "2021",
+        "rating": "7",
+        "director": "Adam McKay",
+        "cast": [
+          "Leonardo DiCaprio",
+          "Jennifer Lawrence",
+          "Meryl Streep"
+        ],
+        "duration": "138",
+        "description": "Two astronomers try to warn the world about a deadly comet heading toward Earth.",
+        "service": "netflix"
+      },
+      {
+        "id": "Bridesmaids-2011-hulu",
+        "title": "Bridesmaids",
+        "genres": [
+          "Comedy"
+        ],
+        "year": "2011",
+        "rating": "7",
+        "director": "Paul Feig",
+        "cast": [
+          "Kristen Wiig",
+          "Maya Rudolph",
+          "Melissa McCarthy"
+        ],
+        "duration": "125",
+        "description": "An unfiltered comedy following Annie as her life unravels while serving as maid of honor for her best friend. Through a series of disastrous mishaps and emotional lows, she ultimately learns the value of friendship and self-worth.",
+        "service": "hulu"
+      },
+      {
+        "id": "The Parent Trap-1998-disney",
+        "title": "The Parent Trap",
+        "genres": [
+          "Comedy",
+          "Family"
+        ],
+        "year": "1998",
+        "rating": "6",
+        "director": "Nancy Meyers",
+        "cast": [
+          "Lindsay Lohan, Dennis Quaid, Natasha Richardson"
+        ],
+        "duration": "128",
+        "description": "Separated at birth twin sisters meet at summer camp and devise a playful scheme to reunite their divorced parents. Their spirited antics and heartfelt deception teach everyone about the true power of family and love.",
+        "service": "disney"
+      }
+    ]
   }
 ]

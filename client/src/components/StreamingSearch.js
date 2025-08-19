@@ -216,7 +216,7 @@ const StreamingSearch = () => {
     return (
       <div className="rating-filter">
         <label className="form-label" style={{ color: darkMode ? '#fff' : 'var(--dark)' }}>
-          Minimum Rating
+          Maximum Rating
         </label>
         <div className="stars-container">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((star) => (
@@ -319,7 +319,7 @@ const StreamingSearch = () => {
               </div>
             )}
             {movie.director && (
-              <p className="movie-director">Director: ${movie.director}</p>
+              <p className="movie-director">Director: {movie.director}</p>
             )}
             {movie.cast && movie.cast.length > 0 && (
               <p className="movie-cast">
